@@ -11,7 +11,7 @@
 }
 
 .navbar{
-    
     --bs-navbar-brand-color: var(--text-primary);
     --bs-navbar-color:var(--text-secondary);
+    --bs-navbar-padding-y:20px;
 }
