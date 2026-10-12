@@ -4,4 +4,6 @@
     --success:#A0F5CE;
     --text-primary:#F0F5F3;
     --text-secondary:#A0AFAB;
+    --bs-dark: var(--primary-bg-color);
+    --bs-dark-rgb: 13,17,19;
 }
