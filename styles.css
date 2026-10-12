@@ -6,4 +6,11 @@
     --text-secondary:#A0AFAB;
     --bs-dark: var(--primary-bg-color);
     --bs-dark-rgb: 13,17,19;
+    
+}
+
+.navbar{
+    --bs-navbar-brand-color: var(--text-primary);
+    --bs-navbar-color:var(--text-secondary);
+    height: 80px;
 }
