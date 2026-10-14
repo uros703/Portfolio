@@ -18,3 +18,10 @@
     --bs-navbar-padding-y:20px;
     --bs-navbar-brand-font-size: 1rem;
 }
+
+
+@media (min-width:992px){
+    .ms-lg-80{
+        margin: 0px 80px;
+    }
+}
