@@ -8,6 +8,7 @@
     --bs-dark-rgb: 13,17,19;
     --bs-success: var(--success);
     --bs-success-rgb: 160, 245, 206;
+    --bs-body-font-family: 'Inter', sans-serif;
 }
 
 .navbar{
