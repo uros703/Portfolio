@@ -25,6 +25,10 @@
     margin-bottom: 2rem;
 }
 
+.fs-12px{
+    font-size: 12px;
+}
+
 .green-text{
     color: var(--success);
     font-family: 'IBM Plex Mono', monospace;
