@@ -21,6 +21,11 @@
     
 }
 
+.green-text{
+    color: var(--success);
+    font-family: 'IBM Plex Mono', monospace;
+}
+
 
 @media (min-width:992px){
     .ms-lg-80{
