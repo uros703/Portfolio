@@ -29,6 +29,10 @@
     font-size: 12px;
 }
 
+.fs-22px{
+    font-size: 22px;
+}
+
 .fs-56px{
     font-size: 56px;
 }
@@ -46,5 +50,8 @@
     }
     .fs-lg-96px{
         font-size: 96px;
+    }
+    .fs-lg-28px{
+        font-size: 28px;
     }
 }
