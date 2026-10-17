@@ -21,6 +21,10 @@
     
 }
 
+.secondary-color{
+    color: var(--text-secondary);
+}
+
 .mb-32px{
     margin-bottom: 2rem;
 }
