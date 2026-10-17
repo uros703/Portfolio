@@ -29,14 +29,22 @@
     font-size: 12px;
 }
 
+.fs-56px{
+    font-size: 56px;
+}
+
 .green-text{
     color: var(--success);
     font-family: 'IBM Plex Mono', monospace;
 }
 
 
+
 @media (min-width:992px){
     .ms-lg-80{
         margin: 0px 80px;
+    }
+    .fs-lg-96px{
+        font-size: 96px;
     }
 }
