@@ -13,6 +13,27 @@
     --bs-white-rgb: 240, 245, 243;
 }
 
+/*BOOTSTRAP KLASE*/
+
+.btn-primary{
+    --bs-btn-bg:var(--success);
+    --bs-btn-border-color:var(--success);
+    --bs-btn-color:#0D1113;
+    --bs-btn-hover-bg: #86d0af;;
+    --bs-btn-hover-color: #0D1113;
+    --bs-btn-hover-border-color: #86d0af;
+    --bs-btn-active-color:  #0D1113;
+    --bs-btn-active-bg: #55a883;
+    --bs-btn-active-border-color: #55a883;
+    --bs-btn-focus-shadow-rgb: 130, 256, 200;
+    width: 160px;
+    height: 56px;
+    padding: 16px 24px;
+}
+
+
+/*MOJE KLASE*/
+
 .navbar{
     --bs-navbar-brand-color: var(--text-primary);
     --bs-navbar-color:var(--text-secondary);
@@ -31,6 +52,10 @@
 
 .fs-12px{
     font-size: 12px;
+}
+
+.fs-14px{
+    font-size: 14px;
 }
 
 .fs-22px{
