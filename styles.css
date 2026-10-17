@@ -89,8 +89,11 @@
 
 
 @media (min-width:992px){
-    .ms-lg-80{
+    .m-lg-80{
         margin: 0px 80px;
+    }
+    .p-lg-80px{
+        padding: 0px 80px;
     }
     .fs-lg-96px{
         font-size: 96px;
