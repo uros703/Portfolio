@@ -115,6 +115,10 @@
         font-size: 28px;
     }
     .sekcija-lg{
+        padding:  64px 0px 80px 0px;
+    }
+
+    .sekcija-lg-temp{
         padding: 96px 0px;
     }
 }
