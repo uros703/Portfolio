@@ -88,6 +88,10 @@
     font-size: 56px;
 }
 
+.fs-32px{
+    font-size: 32px;
+}
+
 .green-text{
     color: var(--success);
     font-family: 'IBM Plex Mono', monospace;
@@ -119,8 +123,10 @@
     .fs-lg-28px{
         font-size: 28px;
     }
+    .fs-lg-40px{
+    font-size: 40px;
+    }
     .sekcija-lg{
         padding: 96px 80px;
     }
-
 }
