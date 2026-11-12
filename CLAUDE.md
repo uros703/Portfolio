@@ -25,7 +25,7 @@ Static one-page portfolio: `index.html`, `styles.css`, `assets/`. Bootstrap 5.2.
 10. **Font sizes in `rem`** (px ÷ 16), even though class names use the px design value.
 11. **Mobile-first:** base styles target phones, the `lg` media query adjusts for desktop. Check both widths.
 12. **Keep `styles.css` grouped:** `:root` → Bootstrap overrides → own classes → spacing → font sizes → desktop media query.
-13. **No inline `style="..."`** — create a small class instead (e.g. `.brand-dot`).
+13. **No inline `style="..."`** — create a small class instead (e.g. `.brand-logo`).
 14. Comments may be in Serbian, matching the existing ones.
 
 ## Workflow

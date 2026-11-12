@@ -1,10 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- UB monogram: slova su nacrtana kao linije (ne tekst), pa izgledaju isto u svakom browseru -->
+  <!-- Logo "Circuit UB": U i B spojeni u jednu liniju, kruzic gore levo = lemna tacka (elektronika) -->
   <rect width="32" height="32" rx="6" fill="#0D1113"/>
-  <g fill="none" stroke="#A0F5CE" stroke-width="2.6" stroke-linejoin="round">
-    <!-- U -->
-    <path d="M6 8.5 V17.5 a4 4 0 0 0 8 0 V8.5"/>
-    <!-- B -->
-    <path d="M17.5 8.5 H21.8 a3.15 3.15 0 0 1 0 6.3 H17.5 Z M17.5 14.8 H22.4 a3.6 3.6 0 0 1 0 7.2 H17.5 Z"/>
+  <g fill="none" stroke="#A0F5CE" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M7.5 11 V18 a4.25 4.25 0 0 0 8.5 0 V8.5 H20.3 a3.1 3.1 0 0 1 0 6.2 H16 M20.3 14.7 H21 a3.65 3.65 0 0 1 0 7.3 H16 V14.7"/>
   </g>
+  <circle cx="7.5" cy="8.6" r="2.2" fill="none" stroke="#A0F5CE" stroke-width="1.6"/>
 </svg>
