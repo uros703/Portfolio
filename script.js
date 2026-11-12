@@ -64,3 +64,21 @@ document.querySelectorAll('.slider-track').forEach((track) => {
   window.addEventListener('resize', updateButtons);
   updateButtons();
 });
+
+// Milestone prozor: kad se klikne kartica, prepisi njen naslov, oznaku i
+// skriveni deo .milestone-details (slika + opis) u zajednicki prozor.
+
+const milestoneModal = document.getElementById('milestoneModal');
+
+if (milestoneModal) {
+  milestoneModal.addEventListener('show.bs.modal', (event) => {
+    const card = event.relatedTarget.closest('.card');
+
+    milestoneModal.querySelector('.milestone-modal-label').textContent =
+      card.querySelector('.milestone-label').textContent;
+    milestoneModal.querySelector('.modal-title').textContent =
+      card.querySelector('.milestone-title').textContent;
+    milestoneModal.querySelector('.milestone-modal-body').innerHTML =
+      card.querySelector('.milestone-details').innerHTML;
+  });
+}
