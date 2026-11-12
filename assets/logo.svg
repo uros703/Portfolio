@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 24 24">
-  <!-- Logo "Circuit UB" bez pozadine (za navigaciju). Ista linija kao favicon.svg -->
-  <g fill="none" stroke="#A0F5CE" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M7.5 11 V18 a4.25 4.25 0 0 0 8.5 0 V8.5 H20.3 a3.1 3.1 0 0 1 0 6.2 H16 M20.3 14.7 H21 a3.65 3.65 0 0 1 0 7.3 H16 V14.7"/>
-  </g>
-  <circle cx="7.5" cy="8.6" r="2.2" fill="none" stroke="#A0F5CE" stroke-width="1.6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="258 807 380 380">
+  <!-- UB logo (simbol) za tamnu pozadinu: mint zelena kao akcenat sajta.
+       Originalni logo u punoj velicini: assets/logo-full.png -->
+  <polygon fill="#A0F5CE" points="265,949 327,906 414,1030 476,987 520,1049 395,1136"/>
+  <polygon fill="#A0F5CE" points="377,944 501,858 631,1043 569,1087 482,964 420,1006"/>
 </svg>
