@@ -208,9 +208,30 @@
     <!-- ACHIEVEMENTS SEKCIJA -->
     <section id="achievements" class="sekcija sekcija-lg bg-surface divider-top">
       <p class="green-text fs-12px">04 / ACHIEVEMENTS</p>
-      <h2 class="fw-semibold fs-32px fs-lg-40px mb-5">Milestones along the way.</h2>
-      <div class="row g-4">
-        <div class="col-lg-4">
+      <div class="d-flex justify-content-between align-items-end gap-3 mb-5">
+        <h2 class="fw-semibold fs-32px fs-lg-40px mb-0">Milestones along the way.</h2>
+        <!-- strelice za slider (povezane sa listom preko id-ja "milestones"); na telefonu skrivene, tamo se prevlaci prstom -->
+        <div class="d-none d-md-flex gap-2 flex-shrink-0">
+          <button class="slider-btn" type="button" data-slider-prev="milestones" aria-label="Previous milestones">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+          </button>
+          <button class="slider-btn" type="button" data-slider-next="milestones" aria-label="Next milestones">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <!-- SLIDER: novu karticu dodaj kao jos jedan <li class="slider-slide"> -->
+      <ul class="slider-track" id="milestones" tabindex="0" aria-label="Milestones">
+        <li class="slider-slide">
+          <article class="card card-dark h-100">
+            <div class="card-body">
+              <i class="bi bi-trophy-fill icon-green fs-24px d-block mb-4" aria-hidden="true"></i>
+              <p class="mono fs-12px mb-2">HACKATHON / TEAM WOIT</p>
+              <h3 class="fw-medium fs-20px lh-base mb-0">Winner, Codeference 2026 SmartGrid Hackathon</h3>
+            </div>
+          </article>
+        </li>
+        <li class="slider-slide">
           <article class="card card-dark h-100">
             <div class="card-body">
               <i class="bi bi-award icon-green fs-24px d-block mb-4" aria-hidden="true"></i>
@@ -218,8 +239,8 @@
               <h3 class="fw-medium fs-20px lh-base mb-0">Finalist, Business Case Challenge, FTN Novi Sad</h3>
             </div>
           </article>
-        </div>
-        <div class="col-lg-4">
+        </li>
+        <li class="slider-slide">
           <article class="card card-dark h-100">
             <div class="card-body">
               <i class="bi bi-trophy icon-green fs-24px d-block mb-4" aria-hidden="true"></i>
@@ -227,8 +248,8 @@
               <h3 class="fw-medium fs-20px lh-base mb-0">3rd Place, Electronics Competition (Vojvodina Region)</h3>
             </div>
           </article>
-        </div>
-        <div class="col-lg-4">
+        </li>
+        <li class="slider-slide">
           <article class="card card-dark h-100">
             <div class="card-body">
               <i class="bi bi-award icon-green fs-24px d-block mb-4" aria-hidden="true"></i>
@@ -236,8 +257,8 @@
               <h3 class="fw-medium fs-20px lh-base mb-0">Honorable Mention, Electronics Competition of Serbia</h3>
             </div>
           </article>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
 
     <!-- CONTACT SEKCIJA -->

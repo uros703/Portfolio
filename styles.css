@@ -257,6 +257,73 @@ a:hover{
     color: var(--text-secondary);
 }
 
+/* Slider (Milestones) */
+
+.slider-track{
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    list-style: none;
+    /* do ivice ekrana: izlazi iz bocnog razmaka sekcije (24px), pa sledeca kartica
+       viri do same ivice umesto da bude odsecena na margini */
+    margin: -8px -24px 0;
+    padding: 8px 24px 0;        /* gore: mesto za hover podizanje kartice */
+    scroll-padding-inline: 24px; /* kartice se zaustavljaju poravnate sa sadrzajem */
+    scrollbar-width: none;      /* sakrij scrollbar (Firefox) */
+}
+
+.slider-track::-webkit-scrollbar{
+    display: none;              /* sakrij scrollbar (Chrome, Safari) */
+}
+
+.slider-slide{
+    flex: 0 0 85%;              /* mobilni: jedna kartica + deo sledece */
+    scroll-snap-align: start;
+}
+
+.slider-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: var(--text-primary);
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    transition: color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+}
+
+.slider-btn:hover:not(:disabled){
+    color: var(--success);
+    border-color: var(--success);
+}
+
+.slider-btn:disabled{
+    opacity: 0.35;
+    cursor: default;
+}
+
+@media (min-width: 768px){
+    .slider-slide{
+        flex-basis: calc((100% - 24px) / 2);    /* tablet: 2 kartice */
+    }
+}
+
+@media (min-width: 992px){
+    .slider-track{
+        /* desktop: 3 kartice staju tacno, bez izlaska do ivice */
+        margin: -8px 0 0;
+        padding: 8px 0 0;
+        scroll-padding-inline: 0;
+    }
+    .slider-slide{
+        flex-basis: calc((100% - 48px) / 3);    /* desktop: 3 kartice */
+    }
+}
+
 /* Razmaci */
 
 .mb-32px{
@@ -373,7 +440,8 @@ a:hover .bi-arrow-up{
 
 /* ako korisnik u sistemu ukljuci "smanji animacije", sve gasimo */
 @media (prefers-reduced-motion: reduce){
-    html{
+    html,
+    .slider-track{
         scroll-behavior: auto;
     }
     *,

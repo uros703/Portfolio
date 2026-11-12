@@ -34,7 +34,7 @@ Static one-page portfolio: `index.html`, `styles.css`, `assets/`. Bootstrap 5.2.
 17. **Before committing, check:** no console errors (F12), nav link scrolls to the section, looks right on mobile and desktop (Ctrl+Shift+M), keyboard Tab shows the green focus ring.
 
 ## Design
-Built from the Figma design "Midnight portfolio" (Desktop + Mobile PNG exports). Icons come from Bootstrap Icons (`<i class="bi bi-...">`). Cards use Bootstrap `.card` with overrides in `styles.css`; `.card-dark` is the darker variant for `bg-surface` sections.
+Built from the Figma design "Midnight portfolio" (Desktop + Mobile PNG exports). Icons come from Bootstrap Icons (`<i class="bi bi-...">`). Cards use Bootstrap `.card` with overrides in `styles.css`; `.card-dark` is the darker variant for `bg-surface` sections. Milestones is a scroll-snap slider (`.slider-track` / `.slider-slide`, arrows wired by id in `script.js`): 3 cards visible on desktop, 2 on tablet, 1 + peek on mobile.
 
 ## Open TODOs
 - Replace bracketed placeholder content: the 3 project cards (swap `div.project-img` for a real `<img class="project-img">`).

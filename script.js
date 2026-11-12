@@ -38,3 +38,29 @@ if ('IntersectionObserver' in window) {
   // stari browseri: samo prikazi sve
   revealTargets.forEach((el) => el.classList.add('is-visible'));
 }
+
+// Slider (Milestones): strelice skroluju za jednu karticu, a na krajevima se gase.
+// Lista se moze i prevuci prstom / skrolovati touchpad-om (CSS scroll-snap).
+
+document.querySelectorAll('.slider-track').forEach((track) => {
+  const prevBtn = document.querySelector(`[data-slider-prev="${track.id}"]`);
+  const nextBtn = document.querySelector(`[data-slider-next="${track.id}"]`);
+
+  // korak = sirina jedne kartice + razmak izmedju kartica
+  const step = () => {
+    const slide = track.querySelector('.slider-slide');
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    return slide.offsetWidth + gap;
+  };
+
+  const updateButtons = () => {
+    prevBtn.disabled = track.scrollLeft <= 1;
+    nextBtn.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+  };
+
+  prevBtn.addEventListener('click', () => track.scrollBy({ left: -step() }));
+  nextBtn.addEventListener('click', () => track.scrollBy({ left: step() }));
+  track.addEventListener('scroll', updateButtons, { passive: true });
+  window.addEventListener('resize', updateButtons);
+  updateButtons();
+});
