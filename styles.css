@@ -2,6 +2,7 @@
     /* Moje boje */
     --primary-bg-color:#0D1113;
     --secondary-bg-color:#151B1E;
+    --placeholder-bg-color:#1D2326;
     --success:#A0F5CE;
     --success-hover:#86D0AF;
     --success-active:#4A9A77;
@@ -9,6 +10,7 @@
     --text-secondary:#A0AFAB;
     --border-color:#2B3735;
     --font-mono:'IBM Plex Mono', monospace;
+    --radius:8px;
 
     /* Bootstrap override-ovi */
     --bs-dark: var(--primary-bg-color);
@@ -27,6 +29,15 @@ html{
 section{
     /* da sekcija ne bude skroz uz vrh kad se klikne link u navigaciji */
     scroll-margin-top: 24px;
+}
+
+a{
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--success);
 }
 
 /*BOOTSTRAP KLASE*/
@@ -58,29 +69,50 @@ section{
     --bs-btn-focus-shadow-rgb: 160, 245, 206;
 }
 
-/* zajednicke dimenzije za oba dugmeta; flex centrira tekst posto su sad <a> linkovi */
+/* zajednicke dimenzije za dugmad; flex centrira tekst posto su <a> linkovi */
 .btn-primary,
 .btn-secondary{
+    --bs-btn-border-radius: var(--radius);
+    --bs-btn-padding-x: 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-width: 144px;
     height: 56px;
-}
-
-.btn-primary{ width: 160px; }
-.btn-secondary{ width: 144px; }
-
-.container-fluid{
-    padding-right: 0;
-    padding-left: 0;
 }
 
 .navbar{
     --bs-navbar-brand-color: var(--text-primary);
     --bs-navbar-brand-hover-color: var(--text-primary);
     --bs-navbar-color: var(--text-secondary);
+    --bs-navbar-hover-color: var(--text-primary);
+    --bs-navbar-active-color: var(--text-primary);
     --bs-navbar-padding-y: 20px;
     --bs-navbar-brand-font-size: 1rem;
+}
+
+.navbar-toggler{
+    border: 0;
+}
+
+.navbar-toggler:focus{
+    box-shadow: 0 0 0 2px var(--success);
+}
+
+.card{
+    --bs-card-bg: var(--secondary-bg-color);
+    --bs-card-border-color: var(--border-color);
+    --bs-card-border-radius: var(--radius);
+    --bs-card-inner-border-radius: calc(var(--radius) - 1px);
+    --bs-card-color: var(--text-primary);
+    --bs-card-spacer-x: 24px;
+    --bs-card-spacer-y: 24px;
+    overflow: hidden;
+}
+
+/* tamnija kartica (na bg-surface sekcijama) */
+.card-dark{
+    --bs-card-bg: var(--primary-bg-color);
 }
 
 /*MOJE KLASE*/
@@ -96,6 +128,14 @@ section{
     background-color: var(--secondary-bg-color);
 }
 
+.divider-top{
+    border-top: 1px solid var(--border-color);
+}
+
+.divider-bottom{
+    border-bottom: 1px solid var(--border-color);
+}
+
 .secondary-color{
     color: var(--text-secondary);
 }
@@ -105,13 +145,116 @@ section{
     font-family: var(--font-mono);
 }
 
+.icon-green,
+.accent{
+    color: var(--success);
+}
+
+.lh-tight{
+    line-height: 1.1;
+}
+
 .mono{
     color: var(--text-secondary);
     font-family: var(--font-mono);
 }
 
+.fw-medium{
+    font-weight: 500;
+}
+
 .sekcija{
     padding: 64px 24px;
+}
+
+/* Hero */
+
+.hero-photo{
+    width: 100%;
+}
+
+.portrait{
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 400 / 368;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+
+/* Skills */
+
+.chip-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.chip{
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    background-color: var(--primary-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+/* Projects */
+
+.project-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    color: var(--text-secondary);
+    background-color: var(--placeholder-bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Contact */
+
+.contact-email{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    font-size: 1.5rem;
+}
+
+.social-links,
+.footer-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.social-links i,
+.back-to-top i{
+    margin-left: 8px;
+}
+
+/* Footer */
+
+.footer-nav{
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    margin-bottom: 40px;
+}
+
+.footer-nav a{
+    color: var(--text-secondary);
 }
 
 /* Razmaci */
@@ -120,9 +263,9 @@ section{
     margin-bottom: 2rem;
 }
 
-.mx-24px{
-    margin-left: 24px;
-    margin-right: 24px;
+.px-24px{
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 /* Velicine fonta (u rem, 1rem = 16px) */
@@ -130,21 +273,117 @@ section{
 .fs-12px{ font-size: 0.75rem; }
 .fs-14px{ font-size: 0.875rem; }
 .fs-18px{ font-size: 1.125rem; }
+.fs-20px{ font-size: 1.25rem; }
 .fs-22px{ font-size: 1.375rem; }
+.fs-24px{ font-size: 1.5rem; }
 .fs-32px{ font-size: 2rem; }
+.fs-40px{ font-size: 2.5rem; }
 .fs-56px{ font-size: 3.5rem; }
 
 /* Desktop (lg = 992px i vise) */
 
 @media (min-width: 992px){
-    .mx-lg-80px{
-        margin-left: 80px;
-        margin-right: 80px;
+    .navbar{
+        --bs-navbar-padding-y: 32px;
+    }
+    .px-lg-80px{
+        padding-left: 80px;
+        padding-right: 80px;
     }
     .sekcija-lg{
         padding: 96px 80px;
     }
+    .hero-photo{
+        width: 400px;
+        flex-shrink: 0;
+    }
+    .social-links{
+        flex-direction: row;
+        gap: 32px;
+    }
+    .fs-lg-16px{ font-size: 1rem; }
+    .fs-lg-24px{ font-size: 1.5rem; }
     .fs-lg-28px{ font-size: 1.75rem; }
     .fs-lg-40px{ font-size: 2.5rem; }
+    .fs-lg-64px{ font-size: 4rem; }
     .fs-lg-96px{ font-size: 6rem; }
+}
+
+/* Animacije */
+
+/* pojavljivanje pri skrolovanju (klase dodaje script.js) */
+.js .reveal{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: var(--delay, 0ms);
+}
+
+.js .reveal.is-visible{
+    opacity: 1;
+    transform: none;
+}
+
+/* tacka posle imena trepce kao kursor */
+h1 .accent{
+    animation: blink 1.2s steps(1) infinite;
+}
+
+@keyframes blink{
+    50%{ opacity: 0; }
+}
+
+/* hover efekti */
+.btn-primary,
+.btn-secondary,
+.card,
+.chip,
+.portrait,
+a i.bi{
+    transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+    transform: translateY(-2px);
+}
+
+.card:hover{
+    transform: translateY(-4px);
+    border-color: rgba(160, 245, 206, 0.4);
+}
+
+.chip:hover{
+    color: var(--success);
+    border-color: var(--success);
+}
+
+.portrait:hover{
+    border-color: var(--success);
+}
+
+/* strelice u linkovima se pomere u smeru u kom pokazuju */
+a:hover .bi-arrow-up-right{
+    transform: translate(3px, -3px);
+}
+
+a:hover .bi-arrow-up{
+    transform: translateY(-3px);
+}
+
+/* ako korisnik u sistemu ukljuci "smanji animacije", sve gasimo */
+@media (prefers-reduced-motion: reduce){
+    html{
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after{
+        animation: none !important;
+        transition: none !important;
+    }
+    .js .reveal{
+        opacity: 1;
+        transform: none;
+    }
 }

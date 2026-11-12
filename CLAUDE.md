@@ -33,7 +33,11 @@ Static one-page portfolio: `index.html`, `styles.css`, `assets/`. Bootstrap 5.2.
 16. **Small commits with clear messages** — one logical change per commit.
 17. **Before committing, check:** no console errors (F12), nav link scrolls to the section, looks right on mobile and desktop (Ctrl+Shift+M), keyboard Tab shows the green focus ring.
 
+## Design
+Built from the Figma design "Midnight portfolio" (Desktop + Mobile PNG exports). Icons come from Bootstrap Icons (`<i class="bi bi-...">`). Cards use Bootstrap `.card` with overrides in `styles.css`; `.card-dark` is the darker variant for `bg-surface` sections.
+
 ## Open TODOs
-- Placeholder cards in the About section need real content.
+- Replace bracketed placeholder content: skills/tools chips, the 3 project cards (swap `div.project-img` for a real `<img class="project-img">`), email (`mailto:` links in Contact) and LinkedIn/GitHub/Behance URLs.
+- Remove the "BRACKETED CONTENT IS A PLACEHOLDER." note and "PLACEHOLDER" labels once real content is in.
 - Open Graph link-preview tags (`og:title`, `og:image`, …) once the site has a public URL — `og:url`/`og:image` must be absolute.
 - Possible upgrade to Bootstrap 5.3 (built-in dark mode would replace most `--bs-*` overrides).
