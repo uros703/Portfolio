@@ -40,5 +40,5 @@ Built from the Figma design "Midnight portfolio" (Desktop + Mobile PNG exports).
 - Replace bracketed placeholder content: the 3 project cards (swap `div.project-img` for a real `<img class="project-img">`).
 - Add a photo and description to each milestone: edit the hidden `.milestone-details` block inside each card (it is shown in the shared `#milestoneModal`); put photos in `assets/milestones/`.
 - Remove the "BRACKETED CONTENT IS A PLACEHOLDER." note and "PLACEHOLDER" labels once real content is in.
-- Open Graph link-preview tags (`og:title`, `og:image`, …) once the site has a public URL — `og:url`/`og:image` must be absolute.
+- SEO once the site has a public URL (see TODO in `<head>`): add `<link rel="canonical">`, `og:url`, `og:image` (1200×630 image, absolute URL), `url`/`image` in the JSON-LD, a `sitemap.xml`, and a `Sitemap:` line in `robots.txt`. Title, description, partial OG tags, JSON-LD Person and icons are already done.
 - Possible upgrade to Bootstrap 5.3 (built-in dark mode would replace most `--bs-*` overrides).
