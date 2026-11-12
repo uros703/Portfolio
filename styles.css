@@ -1,132 +1,150 @@
 :root{
+    /* Moje boje */
     --primary-bg-color:#0D1113;
     --secondary-bg-color:#151B1E;
     --success:#A0F5CE;
+    --success-hover:#86D0AF;
+    --success-active:#4A9A77;
     --text-primary:#F0F5F3;
     --text-secondary:#A0AFAB;
+    --border-color:#2B3735;
+    --font-mono:'IBM Plex Mono', monospace;
+
+    /* Bootstrap override-ovi */
     --bs-dark: var(--primary-bg-color);
-    --bs-dark-rgb: 13,17,19;
+    --bs-dark-rgb: 13, 17, 19;
     --bs-success: var(--success);
     --bs-success-rgb: 160, 245, 206;
     --bs-body-font-family: 'Inter', sans-serif;
-    --bs-white: #F0F5F3;
+    --bs-white: var(--text-primary);
     --bs-white-rgb: 240, 245, 243;
-    --bs-secondary-rgb: 21, 27, 30;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+section{
+    /* da sekcija ne bude skroz uz vrh kad se klikne link u navigaciji */
+    scroll-margin-top: 24px;
 }
 
 /*BOOTSTRAP KLASE*/
 
 .btn-primary{
-    --bs-btn-bg:var(--success);
-    --bs-btn-border-color:var(--success);
-    --bs-btn-color:#0D1113;
-    --bs-btn-hover-bg: #86d0af;;
-    --bs-btn-hover-color: #0D1113;
-    --bs-btn-hover-border-color: #86d0af;
-    --bs-btn-active-color: #0D1113;
-    --bs-btn-active-bg: #4a9a77;
-    --bs-btn-active-border-color: #3f8667;
-    --bs-btn-focus-shadow-rgb: 130, 256, 200;
-    width: 160px;
-    height: 56px;
+    --bs-btn-bg: var(--success);
+    --bs-btn-border-color: var(--success);
+    --bs-btn-color: var(--primary-bg-color);
+    --bs-btn-hover-bg: var(--success-hover);
+    --bs-btn-hover-color: var(--primary-bg-color);
+    --bs-btn-hover-border-color: var(--success-hover);
+    --bs-btn-active-color: var(--primary-bg-color);
+    --bs-btn-active-bg: var(--success-active);
+    --bs-btn-active-border-color: var(--success-active);
+    --bs-btn-focus-shadow-rgb: 160, 245, 206;
 }
-
 
 .btn-secondary{
-    --bs-btn-bg:#0D1113;
-    --bs-btn-border-color:#2B3735;
-    --bs-btn-color:#F0F5F3;
+    --bs-btn-bg: var(--primary-bg-color);
+    --bs-btn-border-color: var(--border-color);
+    --bs-btn-color: var(--text-primary);
     --bs-btn-hover-bg: #172023;
-    --bs-btn-hover-color: #F0F5F3;
-    --bs-btn-active-color: #F0F5F3;
+    --bs-btn-hover-color: var(--text-primary);
+    --bs-btn-hover-border-color: var(--border-color);
+    --bs-btn-active-color: var(--text-primary);
     --bs-btn-active-bg: #070A0B;
-    --bs-btn-active-border-color: #55a883;
+    --bs-btn-active-border-color: var(--success-active);
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.4);
-    width: 144px;
+    --bs-btn-focus-shadow-rgb: 160, 245, 206;
+}
+
+/* zajednicke dimenzije za oba dugmeta; flex centrira tekst posto su sad <a> linkovi */
+.btn-primary,
+.btn-secondary{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     height: 56px;
 }
 
+.btn-primary{ width: 160px; }
+.btn-secondary{ width: 144px; }
+
 .container-fluid{
-    padding-right:0;
+    padding-right: 0;
     padding-left: 0;
 }
-/*MOJE KLASE*/
 
 .navbar{
     --bs-navbar-brand-color: var(--text-primary);
-    --bs-navbar-color:var(--text-secondary);
-    --bs-navbar-padding-y:20px;
+    --bs-navbar-brand-hover-color: var(--text-primary);
+    --bs-navbar-color: var(--text-secondary);
+    --bs-navbar-padding-y: 20px;
     --bs-navbar-brand-font-size: 1rem;
-    
+}
+
+/*MOJE KLASE*/
+
+.brand-dot{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--success);
+}
+
+.bg-surface{
+    background-color: var(--secondary-bg-color);
 }
 
 .secondary-color{
     color: var(--text-secondary);
 }
 
-.mb-32px{
-    margin-bottom: 2rem;
-}
-
-.m-24px{
-    margin: 0px 24px;
-}
-
-.fs-12px{
-    font-size: 12px;
-}
-
-.fs-14px{
-    font-size: 14px;
-}
-
-.fs-22px{
-    font-size: 22px;
-}
-
-.fs-56px{
-    font-size: 56px;
-}
-
-.fs-32px{
-    font-size: 32px;
-}
-
 .green-text{
     color: var(--success);
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
 }
 
 .mono{
-    font-family: 'IBM Plex Mono', monospace;
-    color: #A0AFAB;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
 }
 
 .sekcija{
     padding: 64px 24px;
 }
 
+/* Razmaci */
 
+.mb-32px{
+    margin-bottom: 2rem;
+}
 
+.mx-24px{
+    margin-left: 24px;
+    margin-right: 24px;
+}
 
+/* Velicine fonta (u rem, 1rem = 16px) */
 
-@media (min-width:992px){
-    .m-lg-80{
-        margin: 0px 80px;
-    }
-    .p-lg-80px{
-        padding: 0px 80px !important;
-    }
-    .fs-lg-96px{
-        font-size: 96px;
-    }
-    .fs-lg-28px{
-        font-size: 28px;
-    }
-    .fs-lg-40px{
-    font-size: 40px;
+.fs-12px{ font-size: 0.75rem; }
+.fs-14px{ font-size: 0.875rem; }
+.fs-18px{ font-size: 1.125rem; }
+.fs-22px{ font-size: 1.375rem; }
+.fs-32px{ font-size: 2rem; }
+.fs-56px{ font-size: 3.5rem; }
+
+/* Desktop (lg = 992px i vise) */
+
+@media (min-width: 992px){
+    .mx-lg-80px{
+        margin-left: 80px;
+        margin-right: 80px;
     }
     .sekcija-lg{
         padding: 96px 80px;
     }
+    .fs-lg-28px{ font-size: 1.75rem; }
+    .fs-lg-40px{ font-size: 2.5rem; }
+    .fs-lg-96px{ font-size: 6rem; }
 }
