@@ -182,6 +182,30 @@ a:hover{
     border-radius: var(--radius);
 }
 
+/* About */
+
+/* podaci u redovima: oznaka levo, vrednost desno, tanke linije izmedju */
+.info-row{
+    display: flex;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-row:first-child{
+    border-top: 1px solid var(--border-color);
+}
+
+.info-row dt{
+    width: 96px;
+    flex-shrink: 0;
+    font-weight: 400;
+}
+
+.info-row dd{
+    margin: 0;
+}
+
 /* Skills */
 
 .chip-list{
