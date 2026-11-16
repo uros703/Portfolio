@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="208 757 480 480">
-  <!-- Favicon: UB simbol u originalnim bojama logoa (svetla mint pozadina, zeleni simbol) -->
-  <rect x="208" y="757" width="480" height="480" rx="90" fill="#EBFCEE"/>
-  <polygon fill="#2A7D4F" points="265,949 327,906 414,1030 476,987 520,1049 395,1136"/>
-  <polygon fill="#2A7D4F" points="377,944 501,858 631,1043 569,1087 482,964 420,1006"/>
+  <!-- Favicon: UB simbol na tamnoj pozadini sajta, mint zelena kao u navigaciji -->
+  <rect x="208" y="757" width="480" height="480" rx="90" fill="#0D1113"/>
+  <polygon fill="#A0F5CE" points="265,949 327,906 414,1030 476,987 520,1049 395,1136"/>
+  <polygon fill="#A0F5CE" points="377,944 501,858 631,1043 569,1087 482,964 420,1006"/>
 </svg>
