@@ -1,84 +1,39 @@
-// Animacija pojavljivanja: elementi "isplivaju" kad dodju u vidno polje.
-// Klasu .reveal dodajemo iz JS-a, pa HTML ostaje cist, a bez JS-a sve je normalno vidljivo.
+// Lokalno vreme u Novom Sadu u headeru (da posetilac zna vremensku zonu).
+// Bez JS-a pise samo "Novi Sad, Serbia".
 
-const revealTargets = document.querySelectorAll(
-  'header .sekcija > *, ' +                  // hero: tekst i slika
-  'main section > *:not(.row), ' +           // naslovi, podnaslovi, oznake sekcija
-  'main section .row > [class*="col-"]'      // kolone i kartice u gridu
-);
+const localTime = document.getElementById('local-time');
 
-revealTargets.forEach((el) => {
-  el.classList.add('reveal');
+if (localTime) {
+  const format = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Belgrade',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 
-  // kartice u istom redu se pojavljuju jedna za drugom (100ms razmaka)
-  const parent = el.parentElement;
-  if (parent.classList.contains('row')) {
-    const index = Array.from(parent.children).indexOf(el);
-    el.style.setProperty('--delay', `${index * 100}ms`);
-  }
-});
+  const tick = () => {
+    localTime.textContent = `${format.format(new Date())} local time`;
+  };
 
-// hero se pojavljuje odmah, jedan pa drugi blok
-document.querySelectorAll('header .sekcija > .reveal').forEach((el, i) => {
-  el.style.setProperty('--delay', `${i * 150}ms`);
-});
+  tick();
+  setInterval(tick, 30000);
+}
+
+// Meni: oznaci sekciju koja je trenutno na ekranu.
+
+const navLinks = document.querySelectorAll('.site-nav a');
 
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); // animira se samo jednom
-      }
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => {
+        const isCurrent = link.hash === `#${entry.target.id}`;
+        link.classList.toggle('active', isCurrent);
+        if (isCurrent) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
     });
-  }, { threshold: 0.15 });
+  }, { rootMargin: '-40% 0px -55% 0px' }); // "linija citanja" malo iznad sredine ekrana
 
-  revealTargets.forEach((el) => observer.observe(el));
-} else {
-  // stari browseri: samo prikazi sve
-  revealTargets.forEach((el) => el.classList.add('is-visible'));
-}
-
-// Slider (Milestones): strelice skroluju za jednu karticu, a na krajevima se gase.
-// Lista se moze i prevuci prstom / skrolovati touchpad-om (CSS scroll-snap).
-
-document.querySelectorAll('.slider-track').forEach((track) => {
-  const prevBtn = document.querySelector(`[data-slider-prev="${track.id}"]`);
-  const nextBtn = document.querySelector(`[data-slider-next="${track.id}"]`);
-
-  // korak = sirina jedne kartice + razmak izmedju kartica
-  const step = () => {
-    const slide = track.querySelector('.slider-slide');
-    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-    return slide.offsetWidth + gap;
-  };
-
-  const updateButtons = () => {
-    prevBtn.disabled = track.scrollLeft <= 1;
-    nextBtn.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
-  };
-
-  prevBtn.addEventListener('click', () => track.scrollBy({ left: -step() }));
-  nextBtn.addEventListener('click', () => track.scrollBy({ left: step() }));
-  track.addEventListener('scroll', updateButtons, { passive: true });
-  window.addEventListener('resize', updateButtons);
-  updateButtons();
-});
-
-// Milestone prozor: kad se klikne kartica, prepisi njen naslov, oznaku i
-// skriveni deo .milestone-details (slika + opis) u zajednicki prozor.
-
-const milestoneModal = document.getElementById('milestoneModal');
-
-if (milestoneModal) {
-  milestoneModal.addEventListener('show.bs.modal', (event) => {
-    const card = event.relatedTarget.closest('.card');
-
-    milestoneModal.querySelector('.milestone-modal-label').textContent =
-      card.querySelector('.milestone-label').textContent;
-    milestoneModal.querySelector('.modal-title').textContent =
-      card.querySelector('.milestone-title').textContent;
-    milestoneModal.querySelector('.milestone-modal-body').innerHTML =
-      card.querySelector('.milestone-details').innerHTML;
-  });
+  document.querySelectorAll('main section[id]').forEach((section) => observer.observe(section));
 }
