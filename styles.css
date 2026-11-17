@@ -1,121 +1,186 @@
 :root{
-    /* Moje boje */
-    --primary-bg-color:#0D1113;
-    --secondary-bg-color:#151B1E;
-    --placeholder-bg-color:#1D2326;
-    --success:#A0F5CE;
-    --success-hover:#86D0AF;
-    --success-active:#4A9A77;
-    --text-primary:#F0F5F3;
-    --text-secondary:#A0AFAB;
-    --border-color:#2B3735;
-    --font-mono:'IBM Plex Mono', monospace;
-    --radius:8px;
+    /* Moje boje: tehnicki crtez — papir, mastilo i jedna "struja" */
+    --paper:#EDF0F2;
+    --paper-deep:#E1E6E9;
+    --ink:#13202B;
+    --ink-hover:#24384A;
+    --ink-soft:#55636E;
+    --grid:#C9D2D8;
+    --grid-faint:#E2E7EA;
+    --live:#E3A21A;        /* struja: samo za vod (zicu), cvorove i fokus */
+    --live-deep:#A86F00;   /* tamnija struja: fokus prsten i podvlacenje (dovoljan kontrast na papiru) */
+
+    /* Kolo: x pozicija zice i pocetak sadrzaja (mobilni) */
+    --rail-x:30px;
+    --content-x:54px;
+    --gutter-r:20px;
+    --node-lh:1.05;
+    --radius:3px;
 
     /* Bootstrap override-ovi */
-    --bs-dark: var(--primary-bg-color);
-    --bs-dark-rgb: 13, 17, 19;
-    --bs-success: var(--success);
-    --bs-success-rgb: 160, 245, 206;
-    --bs-body-font-family: 'Inter', sans-serif;
-    --bs-white: var(--text-primary);
-    --bs-white-rgb: 240, 245, 243;
+    --bs-body-bg: var(--paper);
+    --bs-body-color: var(--ink);
+    --bs-body-font-family: 'Archivo', system-ui, sans-serif;
+    --bs-body-line-height: 1.6;
+    --bs-border-color: var(--grid);
 }
 
 html{
     scroll-behavior: smooth;
 }
 
+body{
+    /* milimetarski papir: tanka mreza od 32px */
+    background-color: var(--paper);
+    background-image:
+        linear-gradient(var(--grid-faint) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-faint) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
 section{
     /* da sekcija ne bude skroz uz vrh kad se klikne link u navigaciji */
-    scroll-margin-top: 24px;
+    scroll-margin-top: 16px;
 }
 
 a{
-    color: var(--text-primary);
-    text-decoration: none;
+    color: var(--ink);
+    text-decoration-color: var(--live-deep);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
 }
 
 a:hover{
-    color: var(--success);
+    color: var(--ink);
+}
+
+/* fokus tastaturom: amber prsten svuda (Bootstrap ga inace gasi na dugmadima) */
+:focus-visible,
+.btn:focus-visible,
+.nav-link:focus-visible,
+.navbar-toggler:focus-visible,
+.btn-close:focus-visible{
+    outline: 3px solid var(--live-deep);
+    outline-offset: 3px;
+    box-shadow: none;
 }
 
 /*BOOTSTRAP KLASE*/
 
-.btn-primary{
-    --bs-btn-bg: var(--success);
-    --bs-btn-border-color: var(--success);
-    --bs-btn-color: var(--primary-bg-color);
-    --bs-btn-hover-bg: var(--success-hover);
-    --bs-btn-hover-color: var(--primary-bg-color);
-    --bs-btn-hover-border-color: var(--success-hover);
-    --bs-btn-active-color: var(--primary-bg-color);
-    --bs-btn-active-bg: var(--success-active);
-    --bs-btn-active-border-color: var(--success-active);
-    --bs-btn-focus-shadow-rgb: 160, 245, 206;
-}
-
-.btn-secondary{
-    --bs-btn-bg: var(--primary-bg-color);
-    --bs-btn-border-color: var(--border-color);
-    --bs-btn-color: var(--text-primary);
-    --bs-btn-hover-bg: #172023;
-    --bs-btn-hover-color: var(--text-primary);
-    --bs-btn-hover-border-color: var(--border-color);
-    --bs-btn-active-color: var(--text-primary);
-    --bs-btn-active-bg: #070A0B;
-    --bs-btn-active-border-color: var(--success-active);
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.4);
-    --bs-btn-focus-shadow-rgb: 160, 245, 206;
-}
-
-/* zajednicke dimenzije za dugmad; flex centrira tekst posto su <a> linkovi */
-.btn-primary,
-.btn-secondary{
+.btn{
     --bs-btn-border-radius: var(--radius);
-    --bs-btn-padding-x: 32px;
+    --bs-btn-border-width: 2px;
+    --bs-btn-padding-x: 28px;
+    --bs-btn-font-weight: 600;
+    --bs-btn-focus-box-shadow: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 144px;
-    height: 56px;
+    height: 52px;
+}
+
+.btn-primary{
+    --bs-btn-bg: var(--ink);
+    --bs-btn-border-color: var(--ink);
+    --bs-btn-color: var(--paper);
+    --bs-btn-hover-bg: var(--ink-hover);
+    --bs-btn-hover-border-color: var(--ink-hover);
+    --bs-btn-hover-color: var(--paper);
+    --bs-btn-active-bg: var(--ink);
+    --bs-btn-active-border-color: var(--ink);
+    --bs-btn-active-color: var(--paper);
+}
+
+.btn-secondary{
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: var(--ink);
+    --bs-btn-color: var(--ink);
+    --bs-btn-hover-bg: var(--paper-deep);
+    --bs-btn-hover-border-color: var(--ink);
+    --bs-btn-hover-color: var(--ink);
+    --bs-btn-active-bg: var(--grid);
+    --bs-btn-active-border-color: var(--ink);
+    --bs-btn-active-color: var(--ink);
 }
 
 .navbar{
-    --bs-navbar-brand-color: var(--text-primary);
-    --bs-navbar-brand-hover-color: var(--text-primary);
-    --bs-navbar-color: var(--text-secondary);
-    --bs-navbar-hover-color: var(--text-primary);
-    --bs-navbar-active-color: var(--text-primary);
-    --bs-navbar-padding-y: 20px;
+    --bs-navbar-brand-color: var(--ink);
+    --bs-navbar-brand-hover-color: var(--ink);
+    --bs-navbar-color: var(--ink-soft);
+    --bs-navbar-hover-color: var(--ink);
+    --bs-navbar-active-color: var(--ink);
+    --bs-navbar-padding-y: 16px;
     --bs-navbar-brand-font-size: 1rem;
+    background-color: var(--paper);
+    border-bottom: 2px solid var(--ink);
+}
+
+.navbar .container-fluid{
+    /* logo je centriran tacno iznad zice */
+    padding-left: calc(var(--rail-x) - 14px);
+    padding-right: var(--gutter-r);
+}
+
+/* aktivna sekcija u meniju (postavlja script.js) */
+.navbar .nav-link.active{
+    text-decoration: underline;
+    text-decoration-color: var(--live);
 }
 
 .navbar-toggler{
     border: 0;
 }
 
-.navbar-toggler:focus{
-    box-shadow: 0 0 0 2px var(--success);
+.table.parts{
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--ink);
+    --bs-table-border-color: var(--grid);
 }
 
-.card{
-    --bs-card-bg: var(--secondary-bg-color);
-    --bs-card-border-color: var(--border-color);
-    --bs-card-border-radius: var(--radius);
-    --bs-card-inner-border-radius: calc(var(--radius) - 1px);
-    --bs-card-color: var(--text-primary);
-    --bs-card-spacer-x: 24px;
-    --bs-card-spacer-y: 24px;
-    overflow: hidden;
+.modal{
+    --bs-modal-bg: var(--paper);
+    --bs-modal-color: var(--ink);
+    --bs-modal-border-color: var(--ink);
+    --bs-modal-border-width: 2px;
+    --bs-modal-border-radius: var(--radius);
+    --bs-modal-inner-border-radius: 1px;
+    --bs-modal-header-border-color: var(--grid);
+    --bs-modal-padding: 24px;
+    --bs-modal-header-padding: 24px;
 }
 
-/* tamnija kartica (na bg-surface sekcijama) */
-.card-dark{
-    --bs-card-bg: var(--primary-bg-color);
+.modal-backdrop{
+    --bs-backdrop-bg: var(--ink);
+    --bs-backdrop-opacity: 0.6;
 }
 
 /*MOJE KLASE*/
+
+/* Tipografija: jedna porodica (Archivo), sirina slova nosi karakter */
+
+.wide{
+    font-stretch: 125%;
+}
+
+.narrow{
+    font-stretch: 80%;
+}
+
+.fw-heavy{
+    font-weight: 800;
+}
+
+.lh-tight{
+    line-height: 1.05;
+}
+
+.text-soft{
+    color: var(--ink-soft);
+}
+
+.measure{
+    max-width: 38rem;   /* oko 65 znakova u redu */
+}
 
 .brand-logo{
     display: block;
@@ -123,63 +188,135 @@ a:hover{
     height: 28px;
 }
 
-.bg-surface{
-    background-color: var(--secondary-bg-color);
-}
-
-.divider-top{
-    border-top: 1px solid var(--border-color);
-}
-
-.divider-bottom{
-    border-bottom: 1px solid var(--border-color);
-}
-
-.secondary-color{
-    color: var(--text-secondary);
-}
-
-.green-text{
-    color: var(--success);
-    font-family: var(--font-mono);
-}
-
-.icon-green,
-.accent{
-    color: var(--success);
-}
-
-.lh-tight{
-    line-height: 1.1;
-}
-
-.mono{
-    color: var(--text-secondary);
-    font-family: var(--font-mono);
-}
-
-.fw-medium{
-    font-weight: 500;
+.bg-deep{
+    background-color: var(--paper-deep);
 }
 
 .sekcija{
-    padding: 64px 24px;
+    position: relative;
+    padding: 64px var(--gutter-r) 64px var(--content-x);
+}
+
+/* Kolo: zica niz levu marginu, cvor na svakom naslovu, struja tece do sekcije koju citas */
+
+.circuit{
+    position: relative;
+}
+
+/* zica */
+.circuit::before,
+.circuit::after{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: calc(var(--rail-x) - 1px);
+    width: 2px;
+    pointer-events: none;
+}
+
+.circuit::before{
+    bottom: 37px;       /* zavrsava se na simbolu uzemljenja ispod Contact */
+    background-color: var(--ink);
+}
+
+/* struja: visinu postavlja script.js (--charge) */
+.circuit::after{
+    left: calc(var(--rail-x) - 2px);
+    width: 4px;
+    height: var(--charge, 0px);
+    background-color: var(--live);
+    transition: height 1.1s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+/* cvor: tacka na zici + grana od zice do naslova */
+.node{
+    position: relative;
+    line-height: var(--node-lh);
+}
+
+.node::before,
+.node::after{
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: calc(var(--node-lh) * 0.5em);
+}
+
+.node::before{
+    left: calc(var(--rail-x) - var(--content-x) - 7px);
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    background-color: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    transition: background-color 0.3s ease 0.5s;
+}
+
+.node::after{
+    left: calc(var(--rail-x) - var(--content-x) + 7px);
+    width: calc(var(--content-x) - var(--rail-x) - 17px);
+    height: 2px;
+    margin-top: -1px;
+    background-color: var(--ink);
+    transition: background-color 0.3s ease 0.5s;
+}
+
+.node.is-charged::before,
+.node.is-charged::after{
+    background-color: var(--live);
+}
+
+.node.is-charged::after{
+    height: 4px;
+    margin-top: -2px;
+}
+
+/* uzemljenje: kraj zice */
+#contact::after{
+    content: "";
+    position: absolute;
+    left: calc(var(--rail-x) - 12px);
+    bottom: 24px;
+    width: 24px;
+    height: 14px;
+    background:
+        linear-gradient(var(--ink), var(--ink)) center 0 / 24px 2px no-repeat,
+        linear-gradient(var(--ink), var(--ink)) center 6px / 15px 2px no-repeat,
+        linear-gradient(var(--ink), var(--ink)) center 12px / 6px 2px no-repeat;
 }
 
 /* Hero */
 
-.hero-photo{
-    width: 100%;
+.hero{
+    padding-top: 48px;
+}
+
+.portrait-frame{
+    /* oznake uglova kao na tehnickom crtezu */
+    --m: 20px;
+    max-width: 320px;
+    margin: 0;
+    padding: 10px;
+    background:
+        linear-gradient(var(--ink), var(--ink)) top left / var(--m) 2px,
+        linear-gradient(var(--ink), var(--ink)) top left / 2px var(--m),
+        linear-gradient(var(--ink), var(--ink)) top right / var(--m) 2px,
+        linear-gradient(var(--ink), var(--ink)) top right / 2px var(--m),
+        linear-gradient(var(--ink), var(--ink)) bottom left / var(--m) 2px,
+        linear-gradient(var(--ink), var(--ink)) bottom left / 2px var(--m),
+        linear-gradient(var(--ink), var(--ink)) bottom right / var(--m) 2px,
+        linear-gradient(var(--ink), var(--ink)) bottom right / 2px var(--m);
+    background-repeat: no-repeat;
 }
 
 .portrait{
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 400 / 368;
+    aspect-ratio: 1;
     object-fit: cover;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
 }
 
 /* About */
@@ -188,176 +325,108 @@ a:hover{
 .info-row{
     display: flex;
     gap: 24px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border-color);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--grid);
 }
 
 .info-row:first-child{
-    border-top: 1px solid var(--border-color);
+    border-top: 2px solid var(--ink);
 }
 
 .info-row dt{
     width: 96px;
     flex-shrink: 0;
-    font-weight: 400;
+    font-weight: 500;
+    font-stretch: 80%;
+    color: var(--ink-soft);
 }
 
 .info-row dd{
     margin: 0;
 }
 
-/* Skills */
+/* Skills: spisak delova kao na semi */
 
-.chip-list{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+.parts thead th{
+    font-weight: 500;
+    font-stretch: 80%;
+    color: var(--ink-soft);
+    border-bottom: 2px solid var(--ink);
 }
 
-.chip{
-    padding: 8px 16px;
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    background-color: var(--primary-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
+.parts td,
+.parts th{
+    padding: 12px 16px 12px 0;
+}
+
+.parts .ref{
+    width: 56px;
+    font-weight: 700;
+    font-stretch: 80%;
+    color: var(--ink-soft);
 }
 
 /* Projects */
 
-.project-img{
+.project{
+    padding-top: 32px;
+    padding-bottom: 32px;
+    /* linija samo preko sadrzaja, ne preko negativnih margina .row */
+    background: linear-gradient(var(--ink), var(--ink)) top center / calc(100% - var(--bs-gutter-x)) 2px no-repeat;
+}
+
+/* prazna slika: srafura kao presek na tehnickom crtezu */
+.project-img,
+.event-photo{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
-    color: var(--text-secondary);
-    background-color: var(--placeholder-bg-color);
-    border-bottom: 1px solid var(--border-color);
+    color: var(--ink-soft);
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(-45deg, var(--grid) 0 1px, transparent 1px 12px);
+    border: 2px solid var(--ink);
 }
 
-/* Contact */
-
-.contact-email{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 24px;
-    font-size: 1.5rem;
+.project-img span,
+.event-photo span{
+    padding: 4px 12px;
+    background-color: var(--paper);
 }
 
-.social-links,
-.footer-nav{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+/* Milestones: hronoloski spisak */
+
+.milestone-list{
     padding: 0;
     margin: 0;
     list-style: none;
+    border-bottom: 1px solid var(--grid);
 }
 
-.social-links i,
-.back-to-top i{
-    margin-left: 8px;
+.milestone{
+    position: relative;    /* da .stretched-link pokrije ceo red */
+    display: grid;
+    gap: 4px 24px;
+    padding: 24px 0;
+    border-top: 1px solid var(--grid);
 }
 
-/* Footer */
-
-.footer-nav{
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 24px;
-    margin-bottom: 40px;
+.milestone:first-child{
+    border-top: 2px solid var(--ink);
 }
-
-.footer-nav a{
-    color: var(--text-secondary);
-}
-
-/* Slider (Milestones) */
-
-.slider-track{
-    display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    list-style: none;
-    /* do ivice ekrana: izlazi iz bocnog razmaka sekcije (24px), pa sledeca kartica
-       viri do same ivice umesto da bude odsecena na margini */
-    margin: -8px -24px 0;
-    padding: 8px 24px 0;        /* gore: mesto za hover podizanje kartice */
-    scroll-padding-inline: 24px; /* kartice se zaustavljaju poravnate sa sadrzajem */
-    scrollbar-width: none;      /* sakrij scrollbar (Firefox) */
-}
-
-.slider-track::-webkit-scrollbar{
-    display: none;              /* sakrij scrollbar (Chrome, Safari) */
-}
-
-.slider-slide{
-    flex: 0 0 85%;              /* mobilni: jedna kartica + deo sledece */
-    scroll-snap-align: start;
-}
-
-.slider-btn{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    color: var(--text-primary);
-    background: transparent;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    transition: color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
-}
-
-.slider-btn:hover:not(:disabled){
-    color: var(--success);
-    border-color: var(--success);
-}
-
-.slider-btn:disabled{
-    opacity: 0.35;
-    cursor: default;
-}
-
-@media (min-width: 768px){
-    .slider-slide{
-        flex-basis: calc((100% - 24px) / 2);    /* tablet: 2 kartice */
-    }
-}
-
-@media (min-width: 992px){
-    .slider-track{
-        /* desktop: 3 kartice staju tacno, bez izlaska do ivice */
-        margin: -8px 0 0;
-        padding: 8px 0 0;
-        scroll-padding-inline: 0;
-    }
-    .slider-slide{
-        flex-basis: calc((100% - 48px) / 3);    /* desktop: 3 kartice */
-    }
-}
-
-/* Milestone kartice i prozor */
 
 .milestone-more{
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: auto;            /* gura dugme na dno kartice */
-    padding: 24px 0 0;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--success);
+    justify-self: start;
+    padding: 0;
+    margin-top: 8px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--live-deep);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
     background: none;
     border: 0;
 }
@@ -366,53 +435,74 @@ a:hover{
     outline: none;
 }
 
-/* fokus tastaturom: oznaci celu karticu (dugme pokriva karticu preko .stretched-link) */
-.card:has(.milestone-more:focus-visible){
-    border-color: var(--success);
+/* fokus tastaturom: oznaci ceo red (dugme ga pokriva preko .stretched-link) */
+.milestone:has(.milestone-more:focus-visible){
+    outline: 3px solid var(--live-deep);
+    outline-offset: 4px;
 }
 
-.card:hover .milestone-more i{
-    transform: translateX(3px);
-}
-
-.milestone-more i{
-    transition: transform 0.25s ease;
+.milestone:hover{
+    background-color: var(--paper-deep);
 }
 
 .event-photo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
     aspect-ratio: 16 / 9;
     margin-bottom: 24px;
-    object-fit: cover;
-    color: var(--text-secondary);
-    background-color: var(--placeholder-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
 }
 
-.modal{
-    --bs-modal-bg: var(--secondary-bg-color);
-    --bs-modal-color: var(--text-primary);
-    --bs-modal-border-color: var(--border-color);
-    --bs-modal-border-radius: var(--radius);
-    --bs-modal-inner-border-radius: calc(var(--radius) - 1px);
-    --bs-modal-header-border-color: var(--border-color);
-    --bs-modal-padding: 24px;
-    --bs-modal-header-padding: 24px;
+/* Contact */
+
+.contact-email{
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    text-decoration: underline;
 }
 
-.modal-backdrop{
-    --bs-backdrop-bg: #000;
-    --bs-backdrop-opacity: 0.7;
+.social-links,
+.footer-nav{
+    display: flex;
+    gap: 24px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
-.btn-close:focus{
-    box-shadow: 0 0 0 2px var(--success);
+.social-links i{
+    margin-left: 6px;
+}
+
+/* Footer: zaglavlje crteza (title block) */
+
+.title-block{
+    display: grid;
+    border: 2px solid var(--ink);
+    background-color: var(--paper);
+}
+
+.title-block > *{
+    padding: 12px 16px;
+    border-top: 1px solid var(--ink);
+}
+
+.title-block > *:first-child{
+    border-top: 0;
+}
+
+.title-block dt{
+    font-weight: 500;
+    font-stretch: 80%;
+    color: var(--ink-soft);
+}
+
+.title-block dd{
+    margin: 0;
+    font-weight: 600;
+}
+
+.footer-nav{
+    flex-wrap: wrap;
+    margin-bottom: 32px;
 }
 
 /* Razmaci */
@@ -421,118 +511,86 @@ a:hover{
     margin-bottom: 2rem;
 }
 
-.px-24px{
-    padding-left: 24px;
-    padding-right: 24px;
+.mb-48px{
+    margin-bottom: 3rem;
+}
+
+.px-rail{
+    padding-left: var(--content-x);
+    padding-right: var(--gutter-r);
 }
 
 /* Velicine fonta (u rem, 1rem = 16px) */
 
-.fs-12px{ font-size: 0.75rem; }
 .fs-14px{ font-size: 0.875rem; }
 .fs-18px{ font-size: 1.125rem; }
 .fs-20px{ font-size: 1.25rem; }
-.fs-22px{ font-size: 1.375rem; }
 .fs-24px{ font-size: 1.5rem; }
 .fs-32px{ font-size: 2rem; }
-.fs-40px{ font-size: 2.5rem; }
-.fs-56px{ font-size: 3.5rem; }
+.fs-44px{ font-size: 2.75rem; }
 
 /* Desktop (lg = 992px i vise) */
 
 @media (min-width: 992px){
-    .navbar{
-        --bs-navbar-padding-y: 32px;
+    :root{
+        --rail-x:62px;
+        --content-x:140px;
+        --gutter-r:80px;
     }
-    .px-lg-80px{
-        padding-left: 80px;
-        padding-right: 80px;
+    .navbar{
+        --bs-navbar-padding-y: 24px;
     }
     .sekcija-lg{
-        padding: 96px 80px;
+        padding-top: 112px;
+        padding-bottom: 112px;
     }
-    .hero-photo{
-        width: 400px;
+    .hero{
+        padding-top: 96px;
+    }
+    .portrait-frame{
+        width: 300px;
         flex-shrink: 0;
     }
-    .social-links{
-        flex-direction: row;
-        gap: 32px;
+    .milestone{
+        grid-template-columns: 96px 1fr auto;
+        align-items: baseline;
+        padding: 28px 0;
     }
-    .fs-lg-16px{ font-size: 1rem; }
+    .milestone-more{
+        margin-top: 0;
+    }
+    .title-block{
+        grid-template-columns: 2fr 2fr 1fr;
+    }
+    .title-block > *{
+        border-top: 0;
+        border-left: 1px solid var(--ink);
+    }
+    .title-block > *:first-child{
+        border-left: 0;
+    }
+    .wide-lg{
+        font-stretch: 125%;
+    }
+    .fs-lg-20px{ font-size: 1.25rem; }
     .fs-lg-24px{ font-size: 1.5rem; }
-    .fs-lg-28px{ font-size: 1.75rem; }
-    .fs-lg-40px{ font-size: 2.5rem; }
-    .fs-lg-64px{ font-size: 4rem; }
-    .fs-lg-96px{ font-size: 6rem; }
+    .fs-lg-32px{ font-size: 2rem; }
+    .fs-lg-56px{ font-size: 3.5rem; }
+    .fs-lg-80px{ font-size: 5rem; }
 }
 
-/* Animacije */
+/* Siroki ekran (xl = 1200px i vise): ime dobija punu velicinu */
 
-/* pojavljivanje pri skrolovanju (klase dodaje script.js) */
-.js .reveal{
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    transition-delay: var(--delay, 0ms);
-}
-
-.js .reveal.is-visible{
-    opacity: 1;
-    transform: none;
-}
-
-/* tacka posle imena trepce kao kursor */
-h1 .accent{
-    animation: blink 1.2s steps(1) infinite;
-}
-
-@keyframes blink{
-    50%{ opacity: 0; }
-}
-
-/* hover efekti */
-.btn-primary,
-.btn-secondary,
-.card,
-.chip,
-.portrait,
-a i.bi{
-    transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
-}
-
-.btn-primary:hover,
-.btn-secondary:hover{
-    transform: translateY(-2px);
-}
-
-.card:hover{
-    transform: translateY(-4px);
-    border-color: rgba(160, 245, 206, 0.4);
-}
-
-.chip:hover{
-    color: var(--success);
-    border-color: var(--success);
-}
-
-.portrait:hover{
-    border-color: var(--success);
-}
-
-/* strelice u linkovima se pomere u smeru u kom pokazuju */
-a:hover .bi-arrow-up-right{
-    transform: translate(3px, -3px);
-}
-
-a:hover .bi-arrow-up{
-    transform: translateY(-3px);
+@media (min-width: 1200px){
+    .portrait-frame{
+        width: 340px;
+    }
+    .fs-xl-112px{ font-size: 7rem; }
 }
 
 /* ako korisnik u sistemu ukljuci "smanji animacije", sve gasimo */
 @media (prefers-reduced-motion: reduce){
-    html,
-    .slider-track{
+    html{
         scroll-behavior: auto;
     }
     *,
@@ -540,9 +598,5 @@ a:hover .bi-arrow-up{
     *::after{
         animation: none !important;
         transition: none !important;
-    }
-    .js .reveal{
-        opacity: 1;
-        transform: none;
     }
 }

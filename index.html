@@ -10,7 +10,7 @@
     content="Portfolio of Uros Bundalo, software developer and Electrical &amp; Computer Engineering student from Novi Sad, Serbia. Projects, skills and hackathon wins.">
   <meta name="author" content="Uros Bundalo">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0D1113">
+  <meta name="theme-color" content="#EDF0F2">
 
   <!-- Pregled linka kad se podeli (LinkedIn, Facebook, Viber, Discord...).
        TODO kad sajt dobije adresu: dodaj og:url, og:image i <link rel="canonical"> sa punim https:// linkovima -->
@@ -62,25 +62,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap"
     rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <!-- oznaci da JS radi, da bi animacije sakrile elemente pre prvog prikaza (bez treptanja) -->
-  <script>document.documentElement.classList.add('js');</script>
   <script src="script.js" defer></script>
 </head>
 
-<body class="bg-dark text-white">
-  <!-- HERO SEKCIJA -->
+<body>
+  <!-- NAV SEKCIJA: logo stoji tacno iznad zice koja ide niz celu stranicu -->
   <header>
-    <!-- NAV SEKCIJA-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark divider-bottom" aria-label="Main">
-      <div class="container-fluid px-24px px-lg-80px">
-        <a class="navbar-brand d-flex align-items-center fw-semibold" href="#">
-          <img class="brand-logo me-2" src="assets/logo.svg" alt="" width="28" height="28">Uros Bundalo
+    <nav class="navbar navbar-expand-lg navbar-light" aria-label="Main">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#">
+          <img class="brand-logo" src="assets/logo-ink.svg" alt="" width="28" height="28">Uros Bundalo
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mojMeni"
           aria-controls="mojMeni" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,64 +88,57 @@
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+            <li class="nav-item"><a class="nav-link" href="#achievements">Milestones</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
         </div>
       </div>
     </nav>
-
-    <!--HERO CONTENT SEKCIJA-->
-    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-5 sekcija sekcija-lg">
-      <div>
-        <p class="green-text mb-32px fs-12px">PERSONAL PORTFOLIO / UROS BUNDALO</p>
-        <h1 class="fw-semibold lh-tight fs-56px fs-lg-96px mb-32px">Uros<br>Bundalo<span class="accent">.</span></h1>
-        <h2 class="fw-normal fs-22px fs-lg-28px mb-32px">Student of Electrical and Computer Engineering</h2>
-        <p class="secondary-color fs-18px fs-lg-16px mb-32px">Solving problems with code, one thoughtful solution at a
-          time.</p>
-        <div class="d-flex gap-3">
-          <a class="btn btn-primary fw-semibold fs-14px" href="#projects">View projects</a>
-          <a class="btn btn-secondary fw-semibold fs-14px" href="#contact">Let's talk</a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <img class="portrait mb-4" src="assets/profilna.jpg" alt="Portrait of Uros Bundalo" fetchpriority="high" width="400"
-          height="400">
-        <div class="d-flex justify-content-between">
-          <p class="mono fs-12px mb-0">NOVI SAD, SERBIA</p>
-          <p class="green-text fs-12px mb-0">UB / PORTFOLIO</p>
-        </div>
-      </div>
-    </div>
   </header>
 
-  <main>
-    <!-- ABOUT SEKCIJA -->
-    <section id="about" class="sekcija sekcija-lg bg-surface divider-top">
-      <div class="row g-0 gx-lg-4">
-        <div class="col-lg-4">
-          <p class="green-text fs-12px">01 / ABOUT ME</p>
-          <h2 class="fw-semibold fs-32px fs-lg-40px mb-32px">A little about me.</h2>
+  <!-- .circuit crta zicu niz levu marginu; svaki naslov sa klasom .node je cvor na njoj -->
+  <main class="circuit">
+    <!-- HERO SEKCIJA -->
+    <div class="hero sekcija sekcija-lg d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-5">
+      <div>
+        <h1 class="node wide fw-heavy fs-44px fs-lg-80px fs-xl-112px mb-32px">Uros<br>Bundalo</h1>
+        <p class="measure fs-20px fs-lg-24px mb-32px">Electrical and computer engineering student in Novi Sad.
+          I solve problems with code, from responsive websites to small tools that automate the boring parts.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a class="btn btn-primary" href="#projects">See my projects</a>
+          <a class="btn btn-secondary" href="#contact">Get in touch</a>
         </div>
-        <div class="col-lg-8">
-          <p class="fs-18px fs-lg-24px lh-base mb-32px">Hi, I'm Uros, a software developer based in Novi Sad, Serbia.
-            I enjoy solving problems with code, whether that means building a clean,
-            responsive website or writing a tool that automates a boring task.
-          </p>
+      </div>
+      <figure class="portrait-frame">
+        <img class="portrait" src="assets/profilna.jpg" alt="Portrait of Uros Bundalo" fetchpriority="high"
+          width="400" height="400">
+      </figure>
+    </div>
+
+    <!-- ABOUT SEKCIJA -->
+    <section id="about" class="sekcija sekcija-lg bg-deep">
+      <h2 class="node wide fw-heavy fs-32px fs-lg-56px mb-48px">About me</h2>
+      <div class="row g-5">
+        <div class="col-lg-7">
+          <p class="measure fs-18px fs-lg-24px mb-0">Hi, I'm Uros, a software developer based in Novi Sad, Serbia.
+            I enjoy solving problems with code, whether that means building a clean, responsive website
+            or writing a tool that automates a boring task.</p>
+        </div>
+        <div class="col-lg-5">
           <dl class="mb-0">
             <div class="info-row">
-              <dt class="mono fs-14px">BASED IN</dt>
+              <dt>Based in</dt>
               <dd>Novi Sad, Serbia</dd>
             </div>
             <div class="info-row">
-              <dt class="mono fs-14px">FOCUS</dt>
-              <dd>Electrical &amp; Computer Engineering</dd>
+              <dt>Studying</dt>
+              <dd>Electrical and computer engineering</dd>
             </div>
             <div class="info-row">
-              <dt class="mono fs-14px">COLLEGE</dt>
+              <dt>College</dt>
               <dd>
                 Faculty of Technical Sciences, Novi Sad
-                <span class="d-block secondary-color fs-14px">2nd year · 2025 — present</span>
+                <span class="d-block text-soft fs-14px">2nd year, since 2025</span>
               </dd>
             </div>
           </dl>
@@ -156,271 +146,194 @@
       </div>
     </section>
 
-    <!-- SKILLS SEKCIJA -->
-    <section id="skills" class="sekcija sekcija-lg divider-top">
-      <p class="green-text fs-12px">02 / SKILLS</p>
-      <h2 class="fw-semibold fs-32px fs-lg-40px mb-3">Skills &amp; tools.</h2>
-      <p class="secondary-color mb-5">A toolkit for turning ideas into working solutions.</p>
-      <div class="row g-4">
+    <!-- SKILLS SEKCIJA: spisak delova (kao sa seme); nova vestina = novi <tr> -->
+    <section id="skills" class="sekcija sekcija-lg">
+      <h2 class="node wide fw-heavy fs-32px fs-lg-56px mb-3">Skills and tools</h2>
+      <p class="measure text-soft fs-18px mb-48px">What I use to turn an idea into something that works.</p>
+      <div class="row g-5">
         <div class="col-lg-6">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="fw-normal fs-20px d-flex align-items-center gap-3 mb-4">
-                <i class="bi bi-code-slash icon-green" aria-hidden="true"></i>Skills
-              </h3>
-              <ul class="chip-list">
-                <li class="chip">HTML</li>
-                <li class="chip">CSS</li>
-                <li class="chip">Bootstrap</li>
-                <li class="chip">C</li>
-              </ul>
-            </div>
-          </div>
+          <h3 class="wide fw-bold fs-20px fs-lg-24px mb-3" id="skills-languages">Languages and frameworks</h3>
+          <table class="table parts mb-0" aria-labelledby="skills-languages">
+            <thead>
+              <tr><th scope="col">Ref</th><th scope="col">Part</th><th scope="col">Used for</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="ref">S1</td><td>HTML</td><td>Page structure</td></tr>
+              <tr><td class="ref">S2</td><td>CSS</td><td>Layout and styling</td></tr>
+              <tr><td class="ref">S3</td><td>Bootstrap</td><td>Responsive layouts</td></tr>
+              <tr><td class="ref">S4</td><td>C</td><td>Programming fundamentals</td></tr>
+            </tbody>
+          </table>
         </div>
         <div class="col-lg-6">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="fw-normal fs-20px d-flex align-items-center gap-3 mb-4">
-                <i class="bi bi-wrench icon-green" aria-hidden="true"></i>Tools
-              </h3>
-              <ul class="chip-list">
-                <li class="chip">Figma</li>
-                <li class="chip">GitHub</li>
-                <li class="chip">VS Code</li>
-              </ul>
-            </div>
-          </div>
+          <h3 class="wide fw-bold fs-20px fs-lg-24px mb-3" id="skills-tools">Tools</h3>
+          <table class="table parts mb-0" aria-labelledby="skills-tools">
+            <thead>
+              <tr><th scope="col">Ref</th><th scope="col">Part</th><th scope="col">Used for</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="ref">T1</td><td>Figma</td><td>Designing before building</td></tr>
+              <tr><td class="ref">T2</td><td>GitHub</td><td>Version control</td></tr>
+              <tr><td class="ref">T3</td><td>VS Code</td><td>Writing code</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
     <!-- PROJECTS SEKCIJA -->
-    <section id="projects" class="sekcija sekcija-lg divider-top">
-      <p class="green-text fs-12px">03 / PROJECTS</p>
-      <h2 class="fw-semibold fs-32px fs-lg-40px mb-3">Ideas into practice.</h2>
-      <p class="secondary-color mb-5">A space for selected projects. Details and images are placeholders.</p>
-      <div class="row g-4">
-        <!-- Kad dodas sliku, zameni div.project-img sa:
-             <img class="project-img" src="assets/projekat1.jpg" alt="..." width="800" height="500"> -->
-        <div class="col-lg-4">
-          <article class="card h-100">
-            <div class="project-img">
-              <i class="bi bi-image fs-24px" aria-hidden="true"></i>
-              <span class="mono fs-12px">[Project image]</span>
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between mb-2">
-                <p class="green-text fs-12px mb-0">01 / PROJECT</p>
-                <p class="mono fs-12px mb-0">PLACEHOLDER</p>
-              </div>
-              <h3 class="fw-normal fs-24px fs-lg-28px mb-3">[Project name]</h3>
-              <p class="secondary-color mb-3">[One-sentence description]</p>
-              <p class="mono fs-14px mb-0">[Tools used]</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4">
-          <article class="card h-100">
-            <div class="project-img">
-              <i class="bi bi-image fs-24px" aria-hidden="true"></i>
-              <span class="mono fs-12px">[Project image]</span>
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between mb-2">
-                <p class="green-text fs-12px mb-0">02 / PROJECT</p>
-                <p class="mono fs-12px mb-0">PLACEHOLDER</p>
-              </div>
-              <h3 class="fw-normal fs-24px fs-lg-28px mb-3">[Project name]</h3>
-              <p class="secondary-color mb-3">[One-sentence description]</p>
-              <p class="mono fs-14px mb-0">[Tools used]</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4">
-          <article class="card h-100">
-            <div class="project-img">
-              <i class="bi bi-image fs-24px" aria-hidden="true"></i>
-              <span class="mono fs-12px">[Project image]</span>
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between mb-2">
-                <p class="green-text fs-12px mb-0">03 / PROJECT</p>
-                <p class="mono fs-12px mb-0">PLACEHOLDER</p>
-              </div>
-              <h3 class="fw-normal fs-24px fs-lg-28px mb-3">[Project name]</h3>
-              <p class="secondary-color mb-3">[One-sentence description]</p>
-              <p class="mono fs-14px mb-0">[Tools used]</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACHIEVEMENTS SEKCIJA -->
-    <section id="achievements" class="sekcija sekcija-lg bg-surface divider-top">
-      <p class="green-text fs-12px">04 / ACHIEVEMENTS</p>
-      <div class="d-flex justify-content-between align-items-end gap-3 mb-5">
-        <h2 class="fw-semibold fs-32px fs-lg-40px mb-0">Milestones along the way.</h2>
-        <!-- strelice za slider (povezane sa listom preko id-ja "milestones"); na telefonu skrivene, tamo se prevlaci prstom -->
-        <div class="d-none d-md-flex gap-2 flex-shrink-0">
-          <button class="slider-btn" type="button" data-slider-prev="milestones" aria-label="Previous milestones">
-            <i class="bi bi-arrow-left" aria-hidden="true"></i>
-          </button>
-          <button class="slider-btn" type="button" data-slider-next="milestones" aria-label="Next milestones">
-            <i class="bi bi-arrow-right" aria-hidden="true"></i>
-          </button>
-        </div>
-      </div>
-      <!-- SLIDER: novu karticu dodaj kao jos jedan <li class="slider-slide"> -->
-      <ul class="slider-track" id="milestones" tabindex="0" aria-label="Milestones">
-        <li class="slider-slide">
-          <article class="card card-dark h-100">
-            <div class="card-body d-flex flex-column">
-              <i class="bi bi-trophy-fill icon-green fs-24px d-block mb-4" aria-hidden="true"></i>
-              <p class="milestone-label mono fs-12px mb-2">HACKATHON / TEAM WOIT</p>
-              <h3 class="milestone-title fw-medium fs-20px lh-base mb-0">Winner, Codeference 2026 SmartGrid Hackathon</h3>
-              <!-- DETALJI (prikazuju se u prozoru kad se klikne kartica).
-                   Za sliku: zameni div.event-photo sa
-                   <img class="event-photo" src="assets/milestones/ime-slike.jpg" alt="Opis slike"> -->
-              <div class="milestone-details" hidden>
-                <div class="event-photo">
-                  <i class="bi bi-image fs-24px" aria-hidden="true"></i>
-                  <span class="mono fs-12px">[Event photo]</span>
-                </div>
-                <p class="secondary-color mb-0">[Describe the event: what it was, what you built or did, and what you
-                  learned.]</p>
-              </div>
-              <button class="milestone-more stretched-link" type="button" data-bs-toggle="modal"
-                data-bs-target="#milestoneModal">View details<i class="bi bi-arrow-right" aria-hidden="true"></i></button>
-            </div>
-          </article>
-        </li>
-        <li class="slider-slide">
-          <article class="card card-dark h-100">
-            <div class="card-body d-flex flex-column">
-              <i class="bi bi-award icon-green fs-24px d-block mb-4" aria-hidden="true"></i>
-              <p class="milestone-label mono fs-12px mb-2">BUSINESS CASE</p>
-              <h3 class="milestone-title fw-medium fs-20px lh-base mb-0">Finalist, Business Case Challenge, FTN Novi Sad</h3>
-              <!-- DETALJI (prikazuju se u prozoru kad se klikne kartica).
-                   Za sliku: zameni div.event-photo sa
-                   <img class="event-photo" src="assets/milestones/ime-slike.jpg" alt="Opis slike"> -->
-              <div class="milestone-details" hidden>
-                <div class="event-photo">
-                  <i class="bi bi-image fs-24px" aria-hidden="true"></i>
-                  <span class="mono fs-12px">[Event photo]</span>
-                </div>
-                <p class="secondary-color mb-0">[Describe the event: what it was, what you built or did, and what you
-                  learned.]</p>
-              </div>
-              <button class="milestone-more stretched-link" type="button" data-bs-toggle="modal"
-                data-bs-target="#milestoneModal">View details<i class="bi bi-arrow-right" aria-hidden="true"></i></button>
-            </div>
-          </article>
-        </li>
-        <li class="slider-slide">
-          <article class="card card-dark h-100">
-            <div class="card-body d-flex flex-column">
-              <i class="bi bi-trophy icon-green fs-24px d-block mb-4" aria-hidden="true"></i>
-              <p class="milestone-label mono fs-12px mb-2">REGIONAL ELECTRONICS</p>
-              <h3 class="milestone-title fw-medium fs-20px lh-base mb-0">3rd Place, Electronics Competition (Vojvodina Region)</h3>
-              <!-- DETALJI (prikazuju se u prozoru kad se klikne kartica).
-                   Za sliku: zameni div.event-photo sa
-                   <img class="event-photo" src="assets/milestones/ime-slike.jpg" alt="Opis slike"> -->
-              <div class="milestone-details" hidden>
-                <div class="event-photo">
-                  <i class="bi bi-image fs-24px" aria-hidden="true"></i>
-                  <span class="mono fs-12px">[Event photo]</span>
-                </div>
-                <p class="secondary-color mb-0">[Describe the event: what it was, what you built or did, and what you
-                  learned.]</p>
-              </div>
-              <button class="milestone-more stretched-link" type="button" data-bs-toggle="modal"
-                data-bs-target="#milestoneModal">View details<i class="bi bi-arrow-right" aria-hidden="true"></i></button>
-            </div>
-          </article>
-        </li>
-        <li class="slider-slide">
-          <article class="card card-dark h-100">
-            <div class="card-body d-flex flex-column">
-              <i class="bi bi-award icon-green fs-24px d-block mb-4" aria-hidden="true"></i>
-              <p class="milestone-label mono fs-12px mb-2">NATIONAL ELECTRONICS</p>
-              <h3 class="milestone-title fw-medium fs-20px lh-base mb-0">Honorable Mention, Electronics Competition of Serbia</h3>
-              <!-- DETALJI (prikazuju se u prozoru kad se klikne kartica).
-                   Za sliku: zameni div.event-photo sa
-                   <img class="event-photo" src="assets/milestones/ime-slike.jpg" alt="Opis slike"> -->
-              <div class="milestone-details" hidden>
-                <div class="event-photo">
-                  <i class="bi bi-image fs-24px" aria-hidden="true"></i>
-                  <span class="mono fs-12px">[Event photo]</span>
-                </div>
-                <p class="secondary-color mb-0">[Describe the event: what it was, what you built or did, and what you
-                  learned.]</p>
-              </div>
-              <button class="milestone-more stretched-link" type="button" data-bs-toggle="modal"
-                data-bs-target="#milestoneModal">View details<i class="bi bi-arrow-right" aria-hidden="true"></i></button>
-            </div>
-          </article>
-        </li>
-      </ul>
-    </section>
-
-    <!-- CONTACT SEKCIJA -->
-    <section id="contact" class="sekcija sekcija-lg divider-top">
-      <p class="green-text fs-12px mb-4">05 / CONTACT</p>
-      <div class="row g-5 g-lg-4">
+    <section id="projects" class="sekcija sekcija-lg bg-deep">
+      <h2 class="node wide fw-heavy fs-32px fs-lg-56px mb-3">Projects</h2>
+      <p class="measure text-soft fs-18px mb-48px">Selected work. Names, images and details below are placeholders.</p>
+      <!-- Kad dodas sliku, zameni div.project-img sa:
+           <img class="project-img" src="assets/projekat1.jpg" alt="..." width="800" height="500"> -->
+      <article class="project row g-4 g-lg-5 align-items-center">
         <div class="col-lg-7">
-          <h2 class="fw-semibold lh-tight fs-40px fs-lg-64px mb-4">Have an idea for a project?</h2>
-          <p class="secondary-color fs-18px mb-32px">Tell me a bit about it and I'll get back to you as soon as possible.
-          </p>
-          <a class="btn btn-primary fw-semibold fs-14px" href="mailto:uros2888@gmail.com">Let's talk</a>
+          <div class="project-img"><span class="narrow">[Project image]</span></div>
         </div>
-        <div class="col-lg-4 offset-lg-1 pt-lg-2">
-          <p class="mono fs-12px mb-2">EMAIL</p>
-          <a class="contact-email divider-bottom" href="mailto:uros2888@gmail.com">
-            uros2888@gmail.com<i class="bi bi-arrow-up-right icon-green fs-20px" aria-hidden="true"></i>
-          </a>
-          <p class="mono fs-12px mt-4 mb-3">ELSEWHERE</p>
-          <ul class="social-links">
-            <li><a href="https://www.linkedin.com/in/uros-bundalo-468656384/" target="_blank"
-                rel="me noopener">LinkedIn<i class="bi bi-arrow-up-right icon-green" aria-hidden="true"></i></a></li>
-            <li><a href="https://github.com/uros703" target="_blank" rel="me noopener">GitHub<i
-                  class="bi bi-arrow-up-right icon-green" aria-hidden="true"></i></a></li>
-          </ul>
+        <div class="col-lg-5">
+          <h3 class="wide fw-bold fs-24px fs-lg-32px mb-3">[Project name]</h3>
+          <p class="measure text-soft fs-18px mb-3">[One-sentence description]</p>
+          <p class="narrow fw-semibold mb-0">[Tools used]</p>
         </div>
-      </div>
+      </article>
+      <article class="project row g-4 g-lg-5 align-items-center">
+        <div class="col-lg-7">
+          <div class="project-img"><span class="narrow">[Project image]</span></div>
+        </div>
+        <div class="col-lg-5">
+          <h3 class="wide fw-bold fs-24px fs-lg-32px mb-3">[Project name]</h3>
+          <p class="measure text-soft fs-18px mb-3">[One-sentence description]</p>
+          <p class="narrow fw-semibold mb-0">[Tools used]</p>
+        </div>
+      </article>
+      <article class="project row g-4 g-lg-5 align-items-center">
+        <div class="col-lg-7">
+          <div class="project-img"><span class="narrow">[Project image]</span></div>
+        </div>
+        <div class="col-lg-5">
+          <h3 class="wide fw-bold fs-24px fs-lg-32px mb-3">[Project name]</h3>
+          <p class="measure text-soft fs-18px mb-3">[One-sentence description]</p>
+          <p class="narrow fw-semibold mb-0">[Tools used]</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ACHIEVEMENTS SEKCIJA: od najnovijeg ka najstarijem; nov rezultat = novi <li class="milestone"> na vrh -->
+    <section id="achievements" class="sekcija sekcija-lg">
+      <h2 class="node wide fw-heavy fs-32px fs-lg-56px mb-3">Milestones</h2>
+      <p class="measure text-soft fs-18px mb-48px">Competitions and hackathons, newest first.</p>
+      <ol class="milestone-list">
+        <li class="milestone">
+          <p class="wide fw-heavy fs-20px fs-lg-24px mb-0">2026</p>
+          <div>
+            <h3 class="milestone-title fw-bold fs-20px fs-lg-24px lh-tight mb-2">Winner, Codeference 2026 SmartGrid Hackathon</h3>
+            <p class="milestone-label text-soft mb-0">Hackathon with team WoIT</p>
+          </div>
+          <!-- DETALJI (prikazuju se u prozoru kad se klikne red).
+               Za sliku: zameni div.event-photo sa
+               <img class="event-photo" src="assets/milestones/ime-slike.jpg" alt="Opis slike"> -->
+          <div class="milestone-details" hidden>
+            <div class="event-photo"><span class="narrow">[Event photo]</span></div>
+            <p class="text-soft mb-0">[Describe the event: what it was, what you built or did, and what you
+              learned.]</p>
+          </div>
+          <button class="milestone-more stretched-link" type="button" data-bs-toggle="modal"
+            data-bs-target="#milestoneModal">Details</button>
+        </li>
+        <li class="milestone">
+          <p class="wide fw-heavy fs-20px fs-lg-24px mb-0">[Year]</p>
+          <div>
+            <h3 class="milestone-title fw-bold fs-20px fs-lg-24px lh-tight mb-2">Finalist, Business Case Challenge, FTN Novi Sad</h3>
+            <p class="milestone-label text-soft mb-0">Business case competition</p>
+          </div>
+          <div class="milestone-details" hidden>
+            <div class="event-photo"><span class="narrow">[Event photo]</span></div>
+            <p class="text-soft mb-0">[Describe the event: what it was, what you built or did, and what you
+              learned.]</p>
+          </div>
+          <button class="milestone-more stretched-link" type="button" data-bs-toggle="modal"
+            data-bs-target="#milestoneModal">Details</button>
+        </li>
+        <li class="milestone">
+          <p class="wide fw-heavy fs-20px fs-lg-24px mb-0">[Year]</p>
+          <div>
+            <h3 class="milestone-title fw-bold fs-20px fs-lg-24px lh-tight mb-2">3rd place, Electronics Competition (Vojvodina Region)</h3>
+            <p class="milestone-label text-soft mb-0">Regional electronics competition</p>
+          </div>
+          <div class="milestone-details" hidden>
+            <div class="event-photo"><span class="narrow">[Event photo]</span></div>
+            <p class="text-soft mb-0">[Describe the event: what it was, what you built or did, and what you
+              learned.]</p>
+          </div>
+          <button class="milestone-more stretched-link" type="button" data-bs-toggle="modal"
+            data-bs-target="#milestoneModal">Details</button>
+        </li>
+        <li class="milestone">
+          <p class="wide fw-heavy fs-20px fs-lg-24px mb-0">[Year]</p>
+          <div>
+            <h3 class="milestone-title fw-bold fs-20px fs-lg-24px lh-tight mb-2">Honorable mention, Electronics Competition of Serbia</h3>
+            <p class="milestone-label text-soft mb-0">National electronics competition</p>
+          </div>
+          <div class="milestone-details" hidden>
+            <div class="event-photo"><span class="narrow">[Event photo]</span></div>
+            <p class="text-soft mb-0">[Describe the event: what it was, what you built or did, and what you
+              learned.]</p>
+          </div>
+          <button class="milestone-more stretched-link" type="button" data-bs-toggle="modal"
+            data-bs-target="#milestoneModal">Details</button>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CONTACT SEKCIJA: kraj zice, ispod je simbol uzemljenja (#contact::after) -->
+    <section id="contact" class="sekcija sekcija-lg bg-deep">
+      <h2 class="node wide fw-heavy fs-32px fs-lg-56px mb-3">Get in touch</h2>
+      <p class="measure text-soft fs-18px mb-48px">Have an idea for a project? Tell me a bit about it and I'll get
+        back to you as soon as I can.</p>
+      <a class="contact-email wide-lg fw-heavy fs-24px fs-lg-56px mb-48px" href="mailto:uros2888@gmail.com">uros2888@gmail.com</a>
+      <ul class="social-links fw-semibold">
+        <li><a href="https://www.linkedin.com/in/uros-bundalo-468656384/" target="_blank"
+            rel="me noopener">LinkedIn<i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/uros703" target="_blank" rel="me noopener">GitHub<i
+              class="bi bi-arrow-up-right" aria-hidden="true"></i></a></li>
+      </ul>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="divider-top px-24px px-lg-80px py-5 py-lg-4">
+  <!-- FOOTER: zaglavlje crteza (title block), kao u donjem uglu tehnickog crteza -->
+  <footer class="px-rail py-5">
     <!-- na mobilnom footer ponavlja navigaciju -->
     <ul class="footer-nav d-lg-none">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#achievements">Milestones</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="row g-4 align-items-center">
-      <p class="col-lg-4 mono fs-12px mb-0">&copy; UROS BUNDALO</p>
-      <p class="col-lg-4 secondary-color fs-14px text-lg-center mb-0">Novi Sad, Serbia</p>
-      <div class="col-lg-4 text-lg-end">
-        <a class="back-to-top fs-14px" href="#">Back to top<i class="bi bi-arrow-up icon-green"
-            aria-hidden="true"></i></a>
-      </div>
+    <div class="title-block">
+      <dl class="mb-0">
+        <dt class="fs-14px">Drawn by</dt>
+        <dd>&copy; 2026 Uros Bundalo</dd>
+      </dl>
+      <dl class="mb-0">
+        <dt class="fs-14px">Location</dt>
+        <dd>Novi Sad, Serbia</dd>
+      </dl>
+      <p class="d-flex align-items-center fw-semibold mb-0"><a href="#">Back to top</a></p>
     </div>
   </footer>
 
-  <!-- MILESTONE PROZOR: jedan zajednicki prozor; script.js ga popunjava iz kliknute kartice -->
+  <!-- MILESTONE PROZOR: jedan zajednicki prozor; script.js ga popunjava iz kliknutog reda -->
   <div class="modal fade" id="milestoneModal" tabindex="-1" aria-labelledby="milestoneModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header align-items-start">
           <div>
-            <p class="milestone-modal-label mono fs-12px mb-2"></p>
-            <h2 class="modal-title fw-semibold fs-24px" id="milestoneModalTitle"></h2>
+            <p class="milestone-modal-label text-soft mb-2"></p>
+            <h2 class="modal-title wide fw-heavy fs-24px" id="milestoneModalTitle"></h2>
           </div>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body milestone-modal-body"></div>
       </div>
